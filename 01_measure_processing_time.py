@@ -15,6 +15,7 @@ timeit.timeit(stmt='', setup='', repeat='', timer=time.perf_counter, number=1, g
 
 timeit.timeit(stmt='n+=1', setup='n=0', timer=time.perf_counter, number=1000, globals=None)
 
+# __________________________________________________________________________________________________________________
 # Time measurement of a function:
 def test_function():
     return [n**2 for n in range(10000)]
@@ -22,5 +23,13 @@ def test_function():
 duration = timeit.timeit(stmt='test_function()', setup='from __main__ import test_function', number=1, globals=None)
 print(duration)
 
-duration_globals = timeit.timeit(stmt='test_function()', setup='from __main__ import test_function', number=1, globals=globals())
+# __________________________________________________________________________________________________________________
+# Time measurement of a function with a global variable:
+import random
+N = 1000000
+
+def normal_variation(N):
+    return [random.normalvariate(0, 1) for n in range(N)]
+
+duration_globals = timeit.timeit(stmt='for n in range(1000000): random.normalvariate(0, 1)', setup='', timer=time.perf_counter, number=1, globals=globals())
 print(duration_globals)
