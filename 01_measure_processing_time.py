@@ -33,5 +33,4 @@ def normal_variation(N):
 
 duration_globals = timeit.timeit(stmt='for n in range(1000000): random.normalvariate(0, 1)', setup='from __main__ import normal_variation', timer=time.perf_counter, number=1, globals=globals())
 
-
 print(duration_globals)
