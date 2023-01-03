@@ -10,6 +10,7 @@
 import timeit
 import time
 
+# __________________________________________________________________________________________________________________
 # timeit default command: 
 timeit.timeit(stmt='', setup='', repeat='', timer=time.perf_counter, number=1, globals=None)
 
